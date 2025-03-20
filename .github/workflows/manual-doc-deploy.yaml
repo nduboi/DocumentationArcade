@@ -1,0 +1,56 @@
+name: Manual Documentation Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: 'Repo distant'
+        default: "EpitechPromo2028/B-OOP-400-NAN-4-1-arcade-eliott.tesnier"
+        type: string
+        required: true
+jobs:
+  download-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Télécharger les artefacts depuis un autre dépôt
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN_GHA }}
+          ENV: ${{ inputs.repo }}
+        run: |
+          REPO=$ENV
+          ARTIFACT_NAME="documentation-html"
+
+          RUN_ID=$(gh api repos/$REPO/actions/runs --jq ".workflow_runs[0].id")
+
+          gh api repos/$REPO/actions/runs/$RUN_ID/artifacts --jq \
+            ".artifacts[] | select(.name==\"$ARTIFACT_NAME\").id" | while read ARTIFACT_ID; do
+            curl -L -H "Accept: application/vnd.github+json" \
+                -H "Authorization: token $GH_TOKEN" \
+                -X GET "https://api.github.com/repos/$REPO/actions/artifacts/$ARTIFACT_ID/zip" \
+                -o artifact.zip
+            unzip artifact.zip -d doc
+            rm artifact.zip
+          done
+            if [ ! -d "../doc" ]; then
+              echo "::error title=Error during artefact download::Artefact not found"
+              exit 1
+            fi
+
+      - name: Lister les fichiers téléchargés
+        run: ls -R doc
+
+      - name: Push documentation to branch
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git clone --branch documentation https://${{ secrets.TOKEN_GHA }}@github.com/nduboi/DocumentationArcade.git documentation-branch
+          cd documentation-branch
+          ls -la ../
+          if [ ! -d "../doc" ]; then
+            echo "La page index.html n'existe pas"
+            exit 1
+          fi
+          cp -r ../doc/* .
+          git add .
+          git commit --allow-empty -m "Documentation update via GitHub Actions"
+          git push https://${{ secrets.TOKEN_GHA }}@github.com/nduboi/DocumentationArcade.git documentation
