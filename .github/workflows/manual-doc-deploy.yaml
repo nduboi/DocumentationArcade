@@ -46,7 +46,7 @@ jobs:
           git clone --branch documentation https://${{ secrets.TOKEN_GHA }}@github.com/nduboi/DocumentationArcade.git documentation-branch
           cd documentation-branch
           ls -la ../
-          if [ ! -d ".doc" ]; then
+          if [ ! -d "./doc/index.html" ]; then
             echo "La page index.html n'existe pas"
             exit 1
           fi
