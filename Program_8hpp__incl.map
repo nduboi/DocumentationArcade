@@ -1,0 +1,12 @@
+<map id="src/Program.hpp" name="src/Program.hpp">
+<area shape="rect" id="node1" title="Header file for the Program class." alt="" coords="461,5,589,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="574,229,651,256"/>
+<area shape="rect" id="node3" href="$WindowModule_8hpp.html" title="Declaration of the WindowModule class." alt="" coords="393,80,544,107"/>
+<area shape="rect" id="node4" href="$IWindow_8hpp_source.html" title=" " alt="" coords="5,229,111,256"/>
+<area shape="rect" id="node5" href="$LibLoader_8hpp.html" title="Header file for the LibLoader class, responsible for dynamically loading modules." alt="" coords="301,155,413,181"/>
+<area shape="rect" id="node6" href="$LoaderType_8hpp.html" title="Defines the module types used in the Loader namespace." alt="" coords="135,229,259,256"/>
+<area shape="rect" id="node7" href="$Exception_8hpp.html" title="Exception class for handling DLL&#45;related errors in the barcade project." alt="" coords="283,229,398,256"/>
+<area shape="rect" id="node10" href="$DynamicLib_8hpp.html" title="Header file for dynamic library handling functions." alt="" coords="423,229,549,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="248,304,335,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="359,304,418,331"/>
+</map>

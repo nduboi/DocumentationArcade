@@ -1,0 +1,10 @@
+<map id="src/LibLoader/LibLoader.hpp" name="src/LibLoader/LibLoader.hpp">
+<area shape="rect" id="node1" title="Header file for the LibLoader class, responsible for dynamically loading modules." alt="" coords="197,5,400,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,83,107"/>
+<area shape="rect" id="node3" href="$IWindow_8hpp_source.html" title=" " alt="" coords="107,80,213,107"/>
+<area shape="rect" id="node4" href="$LoaderType_8hpp.html" title="Defines the module types used in the Loader namespace." alt="" coords="237,80,361,107"/>
+<area shape="rect" id="node5" href="$Exception_8hpp.html" title="Exception class for handling DLL&#45;related errors in the barcade project." alt="" coords="385,80,500,107"/>
+<area shape="rect" id="node8" href="$DynamicLib_8hpp.html" title="Header file for dynamic library handling functions." alt="" coords="525,80,651,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="350,155,437,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="461,155,520,181"/>
+</map>
